@@ -1,0 +1,14 @@
+---
+import HeadLayout from "./HeadLayout.astro";
+import "../css/global.scss";
+
+const {title} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<HeadLayout title={title}/>
+<body>
+    <slot/>
+</body>
+</html>
