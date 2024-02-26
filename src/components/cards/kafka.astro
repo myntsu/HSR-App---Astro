@@ -1,10 +1,14 @@
+---
+const {eidolon, signature} = Astro.props;
+---
+
 <div class="card-wrapper">
     <h3>Kafka</h3>
     <div class="card">
       <div class="img-container five-star">
         <img src="https://www.prydwen.gg/static/5eaaf9ec3518805762b5f5a69091d86c/60b4d/7_sm.webp" alt="">
-        <div class="eidolon">E0</div>
-        <div class="signature">S5</div>
+        <div class="eidolon">{eidolon}</div>
+        <div class="signature">{signature}</div>
       </div>
       <div class="info-container lightning">
         <div>
