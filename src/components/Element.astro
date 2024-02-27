@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+
+import abundanceImg from "../assets/path/path_abundance.webp";
+import destructionImg from "../assets/path/path_destruction.webp";
+import eruditionImg from "../assets/path/path_erudition.webp";
+import harmonyImg from "../assets/path/path_harmony.webp";
+import huntImg from "../assets/path/path_hunt.webp";
+import nihilityImg from "../assets/path/path_nihility.webp";
+import preservationImg from "../assets/path/path_preservation.webp";
+
+const {abundance, destruction, erudition, harmony, hunt, nihility, preservation} = Astro.props;
+
+const getClass = (props) => props ? 'show' : 'hidden';
+---
+
+<Image src={abundanceImg} alt="Abundance path" class={getClass(abundance)} />
+<Image src={destructionImg} alt="Destruction path" class={getClass(destruction)} />
+<Image src={eruditionImg} alt="Erudition path" class={getClass(erudition)} />
+<Image src={harmonyImg} alt="Harmony path" class={getClass(harmony)} />
+<Image src={huntImg} alt="Hunt path" class={getClass(hunt)} />
+<Image src={nihilityImg} alt="Nihility path" class={getClass(nihility)} />
+<Image src={preservationImg} alt="Preservation path" class={getClass(preservation)} />
+
+<style>
+    .show {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>

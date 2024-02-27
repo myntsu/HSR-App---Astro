@@ -1,5 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+import lightningElement from "../../assets/element/ele_lightning.webp";
+
 const {eidolon, signature} = Astro.props;
+
+import Path from "../../components/Path.astro";
+
+
 ---
 
 <div class="card-wrapper">
@@ -12,8 +19,8 @@ const {eidolon, signature} = Astro.props;
       </div>
       <div class="info-container lightning">
         <div>
-          <img src="https://www.prydwen.gg/static/49b0ed360bfe2e9828193aa0382510ba/4e704/ele_lightning.webp" alt="">
-          <img src="https://www.prydwen.gg/static/8b37fbbffe64e07dda4cb4d73cfabb19/4e704/path_nihility.webp" alt="">
+          <Image src={lightningElement} alt="Ligthning element"/>
+          <Path nihility/>
         </div>
         <div class="info">
           <div>
