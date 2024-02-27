@@ -1,11 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import lightningElement from "../../assets/element/ele_lightning.webp";
 
 const {eidolon, signature} = Astro.props;
 
 import Path from "../../components/Path.astro";
-
+import Element from "../../components/Element.astro";
 
 ---
 
@@ -19,8 +18,8 @@ import Path from "../../components/Path.astro";
       </div>
       <div class="info-container lightning">
         <div>
-          <Image src={lightningElement} alt="Ligthning element"/>
-          <Path nihility/>
+          <Element lightning />
+          <Path nihility />
         </div>
         <div class="info">
           <div>
