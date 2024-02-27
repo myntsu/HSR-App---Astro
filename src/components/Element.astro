@@ -9,9 +9,19 @@ import physicalImg from "../assets/element/ele_physical.webp";
 import quantumImg from "../assets/element/ele_quantum.webp";
 import windImg from "../assets/element/ele_wind.webp";
 
-const {fire, ice, imaginary, lightning, physical, quantum, wind} = Astro.props;
+const {fire, ice, imaginary, lightning, physical, quantum, wind} = Astro.props as ElementProps;
 
-const getClass = (props) => props ? 'show' : 'hidden';
+interface ElementProps {
+    fire: boolean;
+    ice: boolean;
+    imaginary: boolean;
+    lightning: boolean;
+    physical: boolean;
+    quantum: boolean;
+    wind: boolean;
+}
+
+const getClass = (prop: boolean) => prop ? 'show' : 'hidden';
 ---
 
 <Image src={fireImg} alt="Fire element" class={getClass(fire)} />

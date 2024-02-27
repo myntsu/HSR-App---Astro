@@ -9,9 +9,19 @@ import huntImg from "../assets/path/path_hunt.webp";
 import nihilityImg from "../assets/path/path_nihility.webp";
 import preservationImg from "../assets/path/path_preservation.webp";
 
-const {abundance, destruction, erudition, harmony, hunt, nihility, preservation} = Astro.props;
+const {abundance, destruction, erudition, harmony, hunt, nihility, preservation} = Astro.props as PathProps;
 
-const getClass = (props) => props ? 'show' : 'hidden';
+interface PathProps {
+    abundance: boolean;
+    destruction: boolean;
+    erudition: boolean;
+    harmony: boolean;
+    hunt: boolean;
+    nihility: boolean;
+    preservation: boolean;
+}
+
+const getClass = (prop: boolean) => prop ? 'show' : 'hidden';
 ---
 
 <Image src={abundanceImg} alt="Abundance path" class={getClass(abundance)} />
