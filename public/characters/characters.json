@@ -1,0 +1,16 @@
+[
+    {
+        "character": "acheron",
+        "path": "nihility",
+        "element": "lightning",
+        "image": "acheron",
+        "stars": "five"
+    },
+    {
+        "character": "argenti",
+        "path": "destruction",
+        "element": "physical",
+        "image": "argenti",
+        "stars": "five"
+    }
+]
