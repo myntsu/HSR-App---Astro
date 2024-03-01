@@ -1,11 +1,39 @@
+---
+import "../../css/cardgenerator.css";
+---
+
 <form id="card-generator-form">
+  <label for="team-name-input">Team Name:</label>
+  <input id="team-name-input" type="text" maxlength="30" pattern="[A-Za-z0-9 ]*">
+
   <label for="character-select">Character:</label>
   <select id="character-select">
     <!-- Options will be populated with JavaScript -->
   </select>
 
+  <label for="eidolon-select">Eidolon:</label>
+  <select id="eidolon-select">
+    <option value="E0">E0</option>
+    <option value="E1">E1</option>
+    <option value="E2">E2</option>
+    <option value="E3">E3</option>
+    <option value="E4">E4</option>
+    <option value="E5">E5</option>
+    <option value="E6">E6</option>
+  </select>
+
+  <label for="signature-select">Signature:</label>
+  <select id="signature-select">
+    <option value="S1">S1</option>
+    <option value="S2">S2</option>
+    <option value="S3">S3</option>
+    <option value="S4">S4</option>
+    <option value="S5">S5</option>
+  </select>
+
   <button type="submit">Generate Card</button>
 </form>
+
 
 <section class="cards-container">
 
