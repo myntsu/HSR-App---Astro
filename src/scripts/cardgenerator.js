@@ -1,15 +1,23 @@
+// Function to capitalize the first letter of each word
+function capitalizeWords(str) {
+  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
 // Fetch the data from characters.json
 fetch('/characters/characters.json')
   .then(response => response.json())
   .then(data => {
     // Create a function to generate a new card
     function generateCard(character) {
-      // Capitalize the first letter of each word in the character's name
-      let characterName = character.character.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      // Capitalize the first letter of each word in the character's name, path, and element
+      let characterName = capitalizeWords(character.character);
+      let characterPath = capitalizeWords(character.path);
+      let characterElement = capitalizeWords(character.element);
 
       // Construct the paths for the path and element images
-      let pathImageSrc = `../assets/path/path_${character.path}.webp`;
-      let elementImageSrc = `../assets/element/ele_${character.element}.webp`;
+      let characterImageSrc = `./src/assets/character/${character.character}.webp`;
+      let pathImageSrc = `./src/assets/path/path_${character.path}.webp`;
+      let elementImageSrc = `./src/assets/element/ele_${character.element}.webp`;
 
       // Create the new card HTML
       let newCardHTML = `
@@ -17,14 +25,14 @@ fetch('/characters/characters.json')
           <h3 data-character-name>${characterName}</h3>
           <div class="card">
             <div class="img-container ${character.stars}" data-image-container>
-              <img data-character-image src="" alt="">
+              <img data-character-image src="${characterImageSrc}" alt="${characterName}">
               <div class="eidolon" data-eidolon>E0</div>
               <div class="signature" data-signature>S1</div>
             </div>
             <div class="info-container ${character.element}" data-information>
               <div>
-                <img data-path src="${pathImageSrc}" alt="${character.path} path">
-                <img data-element src="${elementImageSrc}" alt="${character.element} element">
+                <img data-path src="${pathImageSrc}" alt="${characterPath} path">
+                <img data-element src="${elementImageSrc}" alt="${characterElement} element">
               </div>
               <div class="info" data-character-stats>
                 <div>
@@ -46,25 +54,38 @@ fetch('/characters/characters.json')
               </div>
             </div>
             <div class="relic-light-cone-container" data-items>
-              <!-- Items go here -->
+              <div data-relic-one>
+                <img src="https://www.prydwen.gg/static/9ebad5536a051059f9545793489a8376/d8057/prison.webp" alt="">
+              </div>
+              <div data-relic-two>
+                <img src="https://www.prydwen.gg/static/9ebad5536a051059f9545793489a8376/d8057/prison.webp" alt="">
+              </div>
+              <div data-light-cone>
+                <img id="light-cone" src="https://www.prydwen.gg/static/49e01383ee891e54e310cab9f266ae97/6766a/15_sm.webp" alt="">
+              </div>
+              <div data-planar>
+                <img src="https://www.prydwen.gg/static/22c63c0e24d04a2e4a7a1bbdf28cafd6/d8057/firm.webp" alt="">
+              </div>
             </div>
           </div>
         </div>
       `;
 
+      // Add the new card to the cards-container
       let cardsContainer = document.querySelector('.cards-container');
-        if (cardsContainer) {
-          cardsContainer.innerHTML += newCardHTML;
-        } else {
-          console.error('Element with class "cards-container" not found');
-        }
+      if (cardsContainer) {
+        cardsContainer.innerHTML += newCardHTML;
+      } else {
+        console.error('Element with class "cards-container" not found');
+      }
     }
 
     // Populate the character selection input
     let characterSelect = document.getElementById('character-select');
 
     data.forEach(character => {
-      characterSelect.options.add(new Option(character.character, character.character));
+      let characterName = capitalizeWords(character.character);
+      characterSelect.options.add(new Option(characterName, character.character));
     });
 
     // Get the form and add a submit event listener
