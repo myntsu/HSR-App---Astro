@@ -1,129 +1,14 @@
-<!-- Star Rating Selection -->
-<div>
-  <label for="star-rating">Star Rating:</label>
-  <select id="star-rating">
-    <option value="four">4 stars</option>
-    <option value="five">5 stars</option>
+<form id="card-generator-form">
+  <label for="character-select">Character:</label>
+  <select id="character-select">
+    <!-- Options will be populated with JavaScript -->
   </select>
-</div>
 
-<!-- Character Name Selection -->
-<div>
-  <label for="character-name">Character Name:</label>
-  <select id="character-name">
-    <option value="Kafka">Kafka</option>
-    <!-- Add more character names as needed -->
-  </select>
-</div>
+  <button type="submit">Generate Card</button>
+</form>
 
-<!-- Eidolon Level Selection -->
-<div>
-  <label for="eidolon-level">Eidolon Level:</label>
-  <select id="eidolon-level">
-    <option value="0">E0</option>
-    <!-- Fill up the rest of the options -->
-  </select>
-</div>
+<section class="cards-container">
 
-<!-- Signature Level Selection -->
-<div>
-  <label for="signature-level">Signature Level:</label>
-  <select id="signature-level">
-    <option value="1">S1</option>
-    <option value="2">S2</option>
-    <!-- Fill up the rest of the options -->
-  </select>
-</div>
-
-<!-- Element Selection -->
-<div>
-  <label for="element">Element:</label>
-  <select id="element">
-    <option value="fire">Fire</option>
-    <option value="lightning">Ligthning</option>
-    <!-- Fill up the rest of the options -->
-  </select>
-</div>
-
-<!-- Relics Selection -->
-<div>
-  <label for="relics">Relics:</label>
-  <select id="relics">
-    <option value="relic1">Relic 1</option>
-    <!-- Fill up the rest of the options -->
-  </select>
-</div>
-
-<!-- Light Cone Selection -->
-<div>
-  <label for="light-cone">Light Cone:</label>
-  <select id="light-cone">
-    <option value="light-cone1">Light Cone 1</option>
-    <!-- Fill up the rest of the options -->
-  </select>
-</div>
-
-<!-- Path Selection -->
-<div>
-  <label for="path">Path:</label>
-  <select id="path">
-    <option value="path1">Path 1</option>
-    <!-- Fill up the rest of the options -->
-  </select>
-</div>
+</section>
 
 
-<div class="cards-container">
-  <div class="card-wrapper">
-    <h3 id="name">Character Name</h3>
-    <div class="card">
-      <div class="img-container five-star">
-        <img id="character-image" src="https://www.prydwen.gg/static/5eaaf9ec3518805762b5f5a69091d86c/60b4d/7_sm.webp" alt="">
-        <div class="eidolon" id="eidolon">E0</div>
-        <div class="signature" id="signature">S1</div>
-      </div>
-      <div class="info-container lightning" id="info-container">
-        <div>
-          <img id="element-image" src="https://www.prydwen.gg/static/49b0ed360bfe2e9828193aa0382510ba/4e704/ele_lightning.webp" alt="">
-          <img id="path-image" src="https://www.prydwen.gg/static/8b37fbbffe64e07dda4cb4d73cfabb19/4e704/path_nihility.webp" alt="">
-        </div>
-        <div class="info" id="info">
-          <div>
-            <img src="https://www.prydwen.gg/static/ec87ab1e704b5764f83cd05d8442c8b0/dbb7e/stat_hp.webp" alt="">
-            <p id="hp">3519</p>
-          </div>
-          <div>
-            <img src="https://www.prydwen.gg/static/dec7daebd67d260a6cca41705c4615fd/dbb7e/stat_atk.webp" alt="">
-            <p id="atk">3308</p>
-          </div>
-          <div>
-            <img src="https://www.prydwen.gg/static/8a35e542007321efb5401e62acff95be/dbb7e/stat_effecthit.webp" alt="">
-            <p id="effect-hit">29.2%</p>
-          </div>
-          <div>
-            <img src="https://www.prydwen.gg/static/430a8e7c292cef8e2f572b147a171ddd/dbb7e/stat_speed.webp" alt="">
-            <p id="speed">135</p>
-          </div>
-        </div>
-      </div>
-      <div class="relic-light-cone-container" id="relic-light-cone-container">
-        <div>
-          <img src="https://www.prydwen.gg/static/9ebad5536a051059f9545793489a8376/d8057/prison.webp" alt="">
-        </div>
-        <div>
-          <img src="https://www.prydwen.gg/static/9ebad5536a051059f9545793489a8376/d8057/prison.webp" alt="">
-        </div>
-        <div>
-          <img id="light-cone" src="https://www.prydwen.gg/static/49e01383ee891e54e310cab9f266ae97/6766a/15_sm.webp" alt="">
-        </div>
-        <div>
-          <img src="https://www.prydwen.gg/static/22c63c0e24d04a2e4a7a1bbdf28cafd6/d8057/firm.webp" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  import "../../scripts/cardgenerator.js";
-</script>
