@@ -4,11 +4,16 @@ import "../css/cardgenerator.css";
 
 <form id="card-generator-form">
   <label for="team-name-input">Team Name:</label>
-  <input id="team-name-input" type="text" maxlength="30" pattern="[A-Za-z0-9 ]*">
+  <input
+    id="team-name-input"
+    type="text"
+    maxlength="30"
+    pattern="[A-Za-z0-9 ]*"
+  />
 
   <label for="character-select">Character:</label>
   <select id="character-select">
-    <!-- Options will be populated with JavaScript -->
+    <!-- Populated with JS -->
   </select>
 
   <label for="eidolon-select">Eidolon:</label>
@@ -31,12 +36,22 @@ import "../css/cardgenerator.css";
     <option value="S5">S5</option>
   </select>
 
+  <label for="planar-select">Planar:</label>
+  <select id="planar-select">
+    <!-- Populated with JS -->
+  </select>
+
+  <label for="relic-select-one">Relic 1:</label>
+  <select id="relic-select-one">
+    <!-- Populated with JS -->
+  </select>
+
+  <label for="relic-select-two">Relic 2:</label>
+  <select id="relic-select-two">
+    <!-- Populated with JS -->
+  </select>
+
   <button type="submit">Generate Card</button>
 </form>
 
-
-<section class="cards-container">
-
-</section>
-
-
+<section class="cards-container"></section>

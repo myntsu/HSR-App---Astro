@@ -7,11 +7,11 @@ function capitalizeWords(str) {
 }
 
 // Fetch the data from characters.json
-fetch("/characters/characters.json")
+fetch("/characters.json")
   .then((response) => response.json())
   .then((data) => {
     // Create a function to generate a new card
-    function generateCard(character, eidolon, signature, teamName) {
+    function generateCard(character, eidolon, signature, teamName, planarPiece, relicPieceOne, relicPieceTwo) {
       // Capitalize the first letter of each word in the character's name, path, and element
       let characterName = capitalizeWords(character.character);
       let characterPath = capitalizeWords(character.path);
@@ -26,6 +26,9 @@ fetch("/characters/characters.json")
       let characterImageSrc = `./src/assets/character/${characterImageName}.webp`;
       let pathImageSrc = `./src/assets/path/path_${character.path}.webp`;
       let elementImageSrc = `./src/assets/element/ele_${character.element}.webp`;
+      let planarImageSrc = `./src/assets/planar/${planarPiece}.webp`;
+      let relicImageOneSrc = `./src/assets/relic/${relicPieceOne}.webp`;
+      let relicImageTwoSrc = `./src/assets/relic/${relicPieceTwo}.webp`;
 
       // Create the new card HTML
       let newCardHTML = `
@@ -43,35 +46,35 @@ fetch("/characters/characters.json")
               </div>
               <div class="info" data-character-stats>
                 <div data-first-stat>
-                  <img src="https://www.prydwen.gg/static/ec87ab1e704b5764f83cd05d8442c8b0/dbb7e/stat_hp.webp" alt="">
+                  <img src="" alt="">
                   <p>0</p>
                 </div>
                 <div data-second-stat>
-                  <img src="https://www.prydwen.gg/static/dec7daebd67d260a6cca41705c4615fd/dbb7e/stat_atk.webp" alt="">
+                  <img src="" alt="">
                   <p>0</p>
                 </div>
                 <div data-third-stat>
-                  <img src="https://www.prydwen.gg/static/8a35e542007321efb5401e62acff95be/dbb7e/stat_effecthit.webp" alt="">
+                  <img src="" alt="">
                   <p>0</p>
                 </div>
                 <div data-fourth-stat>
-                  <img src="https://www.prydwen.gg/static/430a8e7c292cef8e2f572b147a171ddd/dbb7e/stat_speed.webp" alt="">
+                  <img src="" alt="">
                   <p>0</p>
                 </div>
               </div>
             </div>
             <div class="relic-light-cone-container" data-items>
               <div data-relic-one>
-                <img src="https://www.prydwen.gg/static/9ebad5536a051059f9545793489a8376/d8057/prison.webp" alt="">
+                <img src="${relicImageOneSrc}" alt="${relicPieceOne}">
               </div>
               <div data-relic-two>
-                <img src="https://www.prydwen.gg/static/9ebad5536a051059f9545793489a8376/d8057/prison.webp" alt="">
+                <img src="${relicImageTwoSrc}" alt="${relicPieceTwo}">
               </div>
               <div data-light-cone>
-                <img id="light-cone" src="https://www.prydwen.gg/static/49e01383ee891e54e310cab9f266ae97/6766a/15_sm.webp" alt="">
+                <img id="light-cone" src="" alt="">
               </div>
               <div data-planar>
-                <img src="https://www.prydwen.gg/static/22c63c0e24d04a2e4a7a1bbdf28cafd6/d8057/firm.webp" alt="">
+                <img src="${planarImageSrc}" alt="${planarPiece}">
               </div>
             </div>
           </div>
@@ -132,9 +135,15 @@ fetch("/characters/characters.json")
         let eidolonSelect = document.getElementById("eidolon-select");
         let signatureSelect = document.getElementById("signature-select");
         let teamNameInput = document.getElementById("team-name-input");
+        let planarSelect = document.getElementById("planar-select");
+        let relicSelectOne = document.getElementById("relic-select-one");
+        let relicSelectTwo = document.getElementById("relic-select-two");
         let selectedEidolon = eidolonSelect.value;
         let selectedSignature = signatureSelect.value;
         let selectedTeamName = teamNameInput.value;
+        let selectedPlanar = planarSelect.value;
+        let selectedRelicOne = relicSelectOne.value;
+        let selectedRelicTwo = relicSelectTwo.value;
 
         // Generate a card for the selected character
         if (selectedCharacter) {
@@ -142,10 +151,50 @@ fetch("/characters/characters.json")
             selectedCharacter,
             selectedEidolon,
             selectedSignature,
-            selectedTeamName
+            selectedTeamName,
+            selectedPlanar,
+            selectedRelicOne,
+            selectedRelicTwo
           );
         }
       });
+  })
+  .catch((error) => console.error("Error:", error));
+
+// Fetch the information for the planar pieces and relics
+fetch("/relics.json")
+  .then((response) => response.json())
+  .then((relicData) => {
+    let relicSelectOne = document.getElementById("relic-select-one");
+    let relicSelectTwo = document.getElementById("relic-select-two");
+
+    relicData.forEach((relic) => {
+      let relicName = relic.name;
+      relicSelectOne.options.add(
+        new Option(relicName, relicName)
+      );
+      relicSelectTwo.options.add(
+        new Option(relicName, relicName)
+      );
+    });
+
+    relicSelectOne.addEventListener("change", function () {
+      relicSelectTwo.value = this.value;
+    });
+  })
+  .catch((error) => console.error("Error:", error));
+
+fetch("/planars.json")
+  .then((response) => response.json())
+  .then((planarData) => {
+    let planarSelect = document.getElementById("planar-select");
+
+    planarData.forEach((planar) => {
+      let planarName = planar.name;
+      planarSelect.options.add(
+        new Option(planarName, planarName)
+      );
+    });
   })
   .catch((error) => console.error("Error:", error));
 
