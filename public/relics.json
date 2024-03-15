@@ -4,55 +4,71 @@
         "img": "sizzling"
     },
     {
-        "name": "sizzling",
+        "name": "Champion of Streetwise Boxing",
         "img": "sizzling"
     },
     {
-        "name": "eagle",
+        "name": "Eagle of Twilight Line",
         "img": "eagle"
     },
     {
-        "name": "wuthering",
+        "name": "Firesmith of Lava-Forging",
+        "img": "firesmith"
+    },
+    {
+        "name": "Genius of Brilliant Stars",
+        "img": "genius"
+    },
+    {
+        "name": "Guard of Wuthering Snow",
         "img": "wuthering"
     },
     {
-        "name": "glacial",
+        "name": "Hunter of Glacial Forest",
         "img": "glacial"
     },
     {
-        "name": "hackerspace",
+        "name": "Knight of Purity Palace",
+        "img": "knight"
+    },
+    {
+        "name": "Longevous Disciple",
+        "img": "longevous"
+    },
+    {
+        "name": "Messenger Traversing Hackerspace",
         "img": "hackerspace"
     },
     {
-        "name": "musketeer",
+        "name": "Musketeer of Wild Wheat",
         "img": "musketeer"
     },
     {
-        "name": "passerby",
+        "name": "Passerby of Wandering Cloud",
         "img": "passerby"
     },
     {
-        "name": "pioneer",
-        "img": "pioneer"
+        "name": "Pioneer Diver of Dead Waters",
+        "img": "pioner"
     },
     {
-        "name": "thief",
-        "img": "thief"
+        "name": "Prisoner in Deep Confinement",
+        "img": "prisoner"
     },
     {
-        "name": "watchmaker",
-        "img": "watchmaker"
-    },
-    {
-        "name": "wastelander",
-        "img": "wastelander"
-    },
-    {
-        "name": "duke",
+        "name": "The Ashblazing Grand Duke",
         "img": "duke"
     },
     {
-        "name": "prisoner",
-        "img": "prisoner"
+        "name": "Thief of Shooting Meteor",
+        "img": "thief"
+    },
+    {
+        "name": "Wastelander of Banditry Desert",
+        "img": "wastelander"
+    },
+    {
+        "name": "Watchmaker, Master of Dream Machinations",
+        "img": "watchmaker"
     }
 ]
