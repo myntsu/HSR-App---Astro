@@ -1,6 +1,50 @@
 [
     {
-        "name": "firm",
-        "img": "firm"
+        "name": "Belobog of the Architects",
+        "img": "belebog"
+    },
+    {
+        "name": "Broken Keel",
+        "img": "keel"
+    },
+    {
+        "name": "Celestial Differentiator",
+        "img": "celestial"
+    },
+    {
+        "name": "Firmament Frontline: Glamoth",
+        "img": "glamoth"
+    },
+    {
+        "name": "Fleet of the Ageless",
+        "img": "fleet"
+    },
+    {
+        "name": "Inert Salsotto",
+        "img": "salsotto"
+    },
+    {
+        "name": "Pan-Cosmic Commercial Enterprise",
+        "img": "pan"
+    },
+    {
+        "name": "Penacony, Land of the Dreams",
+        "img": "penacony"
+    },
+    {
+        "name": "Rutilant Arena",
+        "img": "rutilant"
+    },
+    {
+        "name": "Space Sealing Station",
+        "img": "space"
+    },
+    {
+        "name": "Sprightly Vonwacq",
+        "img": "vonwacq"
+    },
+    {
+        "name": "Talia: Kingdom of Banditry",
+        "img": "talia"
     }
 ]
