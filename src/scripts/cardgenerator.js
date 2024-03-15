@@ -170,11 +170,12 @@ fetch("/relics.json")
 
     relicData.forEach((relic) => {
       let relicName = relic.name;
+      let relicImg = relic.img;
       relicSelectOne.options.add(
-        new Option(relicName, relicName)
+        new Option(relicName, relicImg)
       );
       relicSelectTwo.options.add(
-        new Option(relicName, relicName)
+        new Option(relicName, relicImg)
       );
     });
 
@@ -191,12 +192,14 @@ fetch("/planars.json")
 
     planarData.forEach((planar) => {
       let planarName = planar.name;
+      let planarImg = planar.img;
       planarSelect.options.add(
-        new Option(planarName, planarName)
+        new Option(planarName, planarImg)
       );
     });
   })
   .catch((error) => console.error("Error:", error));
+
 
 // Save the cards to localStorage whenever a new card is generated
 function saveCards() {
