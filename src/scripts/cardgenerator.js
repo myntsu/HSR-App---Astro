@@ -23,12 +23,12 @@ fetch("/characters.json")
         .replace(/_+/g, "_");
 
       // Construct the paths for the path and element images
-      let characterImageSrc = `./src/assets/character/${characterImageName}.webp`;
-      let pathImageSrc = `./src/assets/path/path_${character.path}.webp`;
-      let elementImageSrc = `./src/assets/element/ele_${character.element}.webp`;
-      let planarImageSrc = `./src/assets/planar/${planarPiece}.webp`;
-      let relicImageOneSrc = `./src/assets/relic/${relicPieceOne}.webp`;
-      let relicImageTwoSrc = `./src/assets/relic/${relicPieceTwo}.webp`;
+      let characterImageSrc = `/assets/character/${characterImageName}.webp`;
+      let pathImageSrc = `/assets/path/path_${character.path}.webp`;
+      let elementImageSrc = `/assets/element/ele_${character.element}.webp`;
+      let planarImageSrc = `/assets/planar/${planarPiece}.webp`;
+      let relicImageOneSrc = `/assets/relic/${relicPieceOne}.webp`;
+      let relicImageTwoSrc = `/assets/relic/${relicPieceTwo}.webp`;
 
       // Create the new card HTML
       let newCardHTML = `

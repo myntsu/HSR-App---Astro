@@ -1,10 +1,58 @@
 [
     {
+        "name": "Band of Sizzling Thunder",
+        "img": "sizzling"
+    },
+    {
+        "name": "sizzling",
+        "img": "sizzling"
+    },
+    {
+        "name": "eagle",
+        "img": "eagle"
+    },
+    {
+        "name": "wuthering",
+        "img": "wuthering"
+    },
+    {
+        "name": "glacial",
+        "img": "glacial"
+    },
+    {
+        "name": "hackerspace",
+        "img": "hackerspace"
+    },
+    {
+        "name": "musketeer",
+        "img": "musketeer"
+    },
+    {
+        "name": "passerby",
+        "img": "passerby"
+    },
+    {
+        "name": "pioneer",
+        "img": "pioneer"
+    },
+    {
+        "name": "thief",
+        "img": "thief"
+    },
+    {
+        "name": "watchmaker",
+        "img": "watchmaker"
+    },
+    {
+        "name": "wastelander",
+        "img": "wastelander"
+    },
+    {
         "name": "duke",
         "img": "duke"
     },
     {
-        "name": "prison",
-        "img": "prison"
+        "name": "prisoner",
+        "img": "prisoner"
     }
 ]
