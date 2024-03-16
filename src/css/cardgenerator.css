@@ -4,26 +4,38 @@
     --main-dark: 0 0% 8%;
 }
 
+.cards-wrapper {
+  display: flex;
+}
+
 .team-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
-.quick-toast {
-    position: fixed;
-    left: 50%;
-    bottom: -50px;
-    transform: translateX(-50%);
-    padding: 0.75rem 1rem;
-    background-color: hsl(var(--important));
-    color: hsl(var(--white));
-    border-radius: 0.25rem;
-    z-index: 1000;
-    text-align: center;
-  }
+.card {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
 
-  .shadow-container {
-    box-shadow: 
-      0 1px 2px hsl(var(--main-dark) / .3),
-      0 1px 3px hsl(var(--main-dark) / .3);
-  }
+.card > * {
+  max-width: 110px;
+  margin-inline: auto;
+}
+
+.card h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-align: center;
+  margin: 0;
+  margin-block-end: .5rem !important;
+  overflow: hidden;
+}
+
+.card > :not(:last-child) {
+  margin-block-end: .25rem;
+}

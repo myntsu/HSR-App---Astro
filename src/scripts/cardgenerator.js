@@ -1,3 +1,5 @@
+import { showToast } from "./toast.js";
+
 // Function to capitalize the first letter of each word
 function capitalizeWords(str) {
   return str
@@ -11,7 +13,15 @@ fetch("/characters.json")
   .then((response) => response.json())
   .then((data) => {
     // Create a function to generate a new card
-    function generateCard(character, eidolon, signature, teamName, planarPiece, relicPieceOne, relicPieceTwo) {
+    function generateCard(
+      character,
+      eidolon,
+      signature,
+      teamName,
+      planarPiece,
+      relicPieceOne,
+      relicPieceTwo
+    ) {
       // Capitalize the first letter of each word in the character's name, path, and element
       let characterName = capitalizeWords(character.character);
       let characterPath = capitalizeWords(character.path);
@@ -33,50 +43,50 @@ fetch("/characters.json")
       // Create the new card HTML
       let newCardHTML = `
           <div class="card">
-            <h3 data-character-name>${characterName}</h3>
-            <div class="img-container ${character.stars}-star" data-image-container>
-              <img data-character-image src="${characterImageSrc}" alt="${characterName}">
-              <div class="eidolon" data-eidolon>${eidolon}</div>
-              <div class="signature" data-signature>${signature}</div>
-            </div>
-            <div class="info-container ${character.element}" data-information>
-              <div>
-                <img data-path src="${pathImageSrc}" alt="${characterPath} path">
-                <img data-element src="${elementImageSrc}" alt="${characterElement} element">
+              <h3 data-character-name>${characterName}</h3>
+              <div class="img-container ${character.stars}-star" data-image-container>
+                <img data-character-image src="${characterImageSrc}" alt="${characterName}">
+                <div class="eidolon" data-eidolon>${eidolon}</div>
+                <div class="signature" data-signature>${signature}</div>
               </div>
-              <div class="info" data-character-stats>
-                <div data-first-stat>
-                  <img src="" alt="">
-                  <p>0</p>
+              <div class="info-container ${character.element}" data-information>
+                <div>
+                  <img data-path src="${pathImageSrc}" alt="${characterPath} path">
+                  <img data-element src="${elementImageSrc}" alt="${characterElement} element">
                 </div>
-                <div data-second-stat>
-                  <img src="" alt="">
-                  <p>0</p>
+                <div class="info" data-character-stats>
+                  <div data-first-stat>
+                    <img src="" alt="">
+                    <p>0</p>
+                  </div>
+                  <div data-second-stat>
+                    <img src="" alt="">
+                    <p>0</p>
+                  </div>
+                  <div data-third-stat>
+                    <img src="" alt="">
+                    <p>0</p>
+                  </div>
+                  <div data-fourth-stat>
+                    <img src="" alt="">
+                    <p>0</p>
+                  </div>
                 </div>
-                <div data-third-stat>
-                  <img src="" alt="">
-                  <p>0</p>
+              </div>
+              <div class="relic-light-cone-container" data-items>
+                <div data-relic-one>
+                  <img src="${relicImageOneSrc}" alt="${relicPieceOne}">
                 </div>
-                <div data-fourth-stat>
-                  <img src="" alt="">
-                  <p>0</p>
+                <div data-relic-two>
+                  <img src="${relicImageTwoSrc}" alt="${relicPieceTwo}">
+                </div>
+                <div data-light-cone>
+                  <img id="light-cone" src="" alt="">
+                </div>
+                <div data-planar>
+                  <img src="${planarImageSrc}" alt="${planarPiece}">
                 </div>
               </div>
-            </div>
-            <div class="relic-light-cone-container" data-items>
-              <div data-relic-one>
-                <img src="${relicImageOneSrc}" alt="${relicPieceOne}">
-              </div>
-              <div data-relic-two>
-                <img src="${relicImageTwoSrc}" alt="${relicPieceTwo}">
-              </div>
-              <div data-light-cone>
-                <img id="light-cone" src="" alt="">
-              </div>
-              <div data-planar>
-                <img src="${planarImageSrc}" alt="${planarPiece}">
-              </div>
-            </div>
           </div>
       `;
 
@@ -100,7 +110,14 @@ fetch("/characters.json")
         teamContainer = document.createElement("div");
         teamContainer.className = "team-container";
         teamContainer.dataset.teamName = teamName;
-        cardsWrapper.appendChild(teamContainer);
+
+        // Add the team name to the team container
+        let teamNameElement = document.createElement("h2");
+        teamNameElement.innerText = teamName;
+        teamContainer.appendChild(teamNameElement);
+
+        // Append the team container to the cards wrapper
+        document.querySelector(".cards-wrapper").appendChild(teamContainer);
       }
 
       // Add the new card to the team container
@@ -145,6 +162,12 @@ fetch("/characters.json")
         let selectedRelicOne = relicSelectOne.value;
         let selectedRelicTwo = relicSelectTwo.value;
 
+        // Validate card generation
+        if (!validateCardGeneration(selectedTeamName)) {
+          // If validation fails, prevent card generation
+          return;
+        }
+
         // Generate a card for the selected character
         if (selectedCharacter) {
           generateCard(
@@ -171,12 +194,8 @@ fetch("/relics.json")
     relicData.forEach((relic) => {
       let relicName = relic.name;
       let relicImg = relic.img;
-      relicSelectOne.options.add(
-        new Option(relicName, relicImg)
-      );
-      relicSelectTwo.options.add(
-        new Option(relicName, relicImg)
-      );
+      relicSelectOne.options.add(new Option(relicName, relicImg));
+      relicSelectTwo.options.add(new Option(relicName, relicImg));
     });
 
     relicSelectOne.addEventListener("change", function () {
@@ -193,13 +212,35 @@ fetch("/planars.json")
     planarData.forEach((planar) => {
       let planarName = planar.name;
       let planarImg = planar.img;
-      planarSelect.options.add(
-        new Option(planarName, planarImg)
-      );
+      planarSelect.options.add(new Option(planarName, planarImg));
     });
   })
   .catch((error) => console.error("Error:", error));
 
+// Validating team name
+function validateCardGeneration(teamName) {
+  // Check if team name is empty
+  if (!teamName) {
+    showToast("Error: Team name cannot be empty.");
+    return false;
+  }
+
+  // Check if team name is already used
+  let existingTeamContainer = document.querySelector(
+    `.team-container[data-team-name="${teamName}"]`
+  );
+  if (existingTeamContainer) {
+    // Check if there are more than 4 cards in the team
+    let teamCards = existingTeamContainer.querySelectorAll(".card");
+    if (teamCards.length >= 4) {
+      showToast("Error: Must pick a new team name.");
+      return false;
+    }
+  }
+
+  // If all checks pass, return true
+  return true;
+}
 
 // Save the cards to localStorage whenever a new card is generated
 function saveCards() {
