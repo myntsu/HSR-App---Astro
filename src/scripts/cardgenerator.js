@@ -26,9 +26,9 @@ fetch("/characters.json")
       let characterImageSrc = `/assets/character/${characterImageName}.webp`;
       let pathImageSrc = `/assets/path/path_${character.path}.webp`;
       let elementImageSrc = `/assets/element/ele_${character.element}.webp`;
-      let planarImageSrc = `/assets/planar/${planarPiece}.webp`;
-      let relicImageOneSrc = `/assets/relic/${relicPieceOne}.webp`;
-      let relicImageTwoSrc = `/assets/relic/${relicPieceTwo}.webp`;
+      let planarImageSrc = `./assets/planar/${planarPiece}.webp`;
+      let relicImageOneSrc = `./assets/relic/${relicPieceOne}.webp`;
+      let relicImageTwoSrc = `./assets/relic/${relicPieceTwo}.webp`;
 
       // Create the new card HTML
       let newCardHTML = `
