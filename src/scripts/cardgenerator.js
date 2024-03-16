@@ -29,8 +29,11 @@ fetch("/characters.json")
 
       // Replace spaces and dots with underscores in the character's name for the image file
       let characterImageName = character.character
-        .replace(/[^a-z0-9]/gi, "_")
-        .replace(/_+/g, "_");
+        .replace(/&/g, "and") // replace & with and
+        .replace(/[()]/g, "") // remove parentheses
+        .replace(/[^a-z0-9]/gi, "_") // replace non-alphanumeric characters with underscore
+        .replace(/_+/g, "_") // replace multiple underscores with a single underscore
+        .replace(/_$/, ""); // remove trailing underscore
 
       // Construct the paths for the path and element images
       let characterImageSrc = `/assets/character/${characterImageName}.webp`;
