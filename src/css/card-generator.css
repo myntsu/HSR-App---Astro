@@ -32,3 +32,8 @@
 .card > :not(:last-child) {
   margin-block-end: 0.25rem;
 }
+
+
+form {
+  
+}
